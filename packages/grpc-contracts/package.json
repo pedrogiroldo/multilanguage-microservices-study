@@ -1,0 +1,24 @@
+{
+  "name": "@multilanguage-microservices/grpc-contracts",
+  "version": "1.0.0",
+  "description": "gRPC protocol buffer definitions for multilanguage microservices",
+  "main": "index.js",
+  "files": [
+    "*.proto",
+    "generated/**/*"
+  ],
+  "scripts": {
+    "build": "echo 'No build step required for proto files'",
+    "lint": "echo 'No linting required for proto files'"
+  },
+  "keywords": [
+    "grpc",
+    "protobuf",
+    "microservices",
+    "contracts"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}
