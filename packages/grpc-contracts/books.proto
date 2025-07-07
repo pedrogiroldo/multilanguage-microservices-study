@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package books;
+
+// Serviço gRPC para operações com livros
+service BookService {
+  rpc GetBookById (BookIdRequest) returns (Book);
+}
+
+// option java_package = "com.multilanguage-microservices-study.books-service";
+// option java_outer_classname = "BookProto";
+
+// Mensagem representando um livro
+message Book {
+  string nome = 1;
+  int64 user_id = 2;
+}
+
+// Mensagem para requisição por ID
+message BookIdRequest {
+  int64 id = 1;
+}
