@@ -1,6 +1,0 @@
-{
-  "name": "books-service",
-  "scripts": {
-    "dev": "./mvnw spring-boot:run"
-  }
-}

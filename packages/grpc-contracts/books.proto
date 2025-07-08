@@ -2,21 +2,56 @@ syntax = "proto3";
 
 package books;
 
-// Serviço gRPC para operações com livros
+// The book service definition.
 service BookService {
+  // Gets a book by its ID.
   rpc GetBookById (BookIdRequest) returns (Book);
+  // Creates a new book.
+  rpc CreateBook (CreateBookRequest) returns (Book);
+  // Updates an existing book.
+  rpc UpdateBook (UpdateBookRequest) returns (Book);
+  // Deletes a book by its ID.
+  rpc DeleteBook (BookIdRequest) returns (DeleteBookResponse);
+  // Lists all books.
+  rpc ListBooks (ListBooksRequest) returns (ListBooksResponse);
 }
 
-// option java_package = "com.multilanguage-microservices-study.books-service";
-// option java_outer_classname = "BookProto";
-
-// Mensagem representando um livro
+// Message representing a book.
 message Book {
-  string nome = 1;
+  int64 id = 1;
+  string name = 2;
+  int64 user_id = 3;
+}
+
+// Request message for GetBookById and DeleteBook.
+message BookIdRequest {
+  int64 id = 1;
+}
+
+// Request message for CreateBook.
+message CreateBookRequest {
+  string name = 1;
   int64 user_id = 2;
 }
 
-// Mensagem para requisição por ID
-message BookIdRequest {
+// Request message for UpdateBook.
+message UpdateBookRequest {
   int64 id = 1;
+  string name = 2;
+}
+
+// Response message for DeleteBook.
+message DeleteBookResponse {
+  bool success = 1;
+}
+
+// Request message for ListBooks.
+message ListBooksRequest {
+  // Optional: filter by user_id
+  int64 user_id = 1;
+}
+
+// Response message for ListBooks.
+message ListBooksResponse {
+  repeated Book books = 1;
 }
