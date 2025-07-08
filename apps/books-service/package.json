@@ -1,0 +1,7 @@
+{
+  "name": "books-service",
+  "scripts": {
+    "proto": "protoc --proto_path=../../packages/grpc-contracts --go_out=. --go-grpc_out=. books.proto",
+    "dev": "go run main.go"
+  }
+}
